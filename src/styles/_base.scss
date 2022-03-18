@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;0,600;0,700;1,400&family=Raleway:wght@400;500;600;700&display=swap");
+$default-font-size: 1.4rem;
+$default-font-weight: 400;
+$main-bg: hsl(218, 28%, 13%); // (main background)
+$secondary-bg: hsl(217, 28%, 15%); // (intro and email sign up background)
+$footer-bg: hsl(216, 53%, 9%); // (footer background)
+$testimonials-bg: hsl(219, 30%, 18%); // (testimonials background)
+
+$cyan-cta: hsl(176, 68%, 64%); // (inside call-to-action gradient)
+$blue-cta: hsl(198, 60%, 50%); // (inside call-to-action gradient)
+$light-Red-error: hsl(0, 100%, 63%); //  (error)
+$text-color: #fff;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  user-select: none;
+  background-color: $secondary-bg;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  width: 100%;
+  max-width: 100%;
+  &::-webkit-scrollbar {
+    width: 0.65rem;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $main-bg;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 2rem;
+  }
+}
+@mixin mainGridTemplate {
+  grid-template-columns:
+    [all-start] 5% [center-start] repeat(10, [col-start] (90% / 10) [col-end])
+    [ center-end ] 5% [all-end];
+}
+a,
+button {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+
+a,
+button,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}

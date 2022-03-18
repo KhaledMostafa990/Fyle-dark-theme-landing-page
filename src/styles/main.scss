@@ -1,0 +1,18 @@
+@import "base";
+@import "header";
+@import "hero";
+
+.main {
+  background-color: $main-bg;
+  display: grid;
+  @include mainGridTemplate;
+  overflow: hidden;
+
+  width: 100%;
+  max-width: 100%;
+  row-gap: 12rem;
+}
+@import "features";
+@import "process";
+@import "team";
+@import "footer";
