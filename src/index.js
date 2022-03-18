@@ -1,5 +1,8 @@
 // import "./src/styles/main.scss";
 
-import test from "./js/test";
+import handleRenderImages from "./js/handleRenderImages";
 
-test();
+function init() {
+  handleRenderImages();
+}
+init();
