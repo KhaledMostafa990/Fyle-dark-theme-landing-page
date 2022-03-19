@@ -1,3 +1,50 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   padding: 2rem 5% 5rem;
+
+  &__logo-wrapper {
+    .logo {
+      width: 7.5rem;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    padding: 6rem 5%;
+
+    &__logo-wrapper {
+      .logo {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.nav {
+  &__navlist {
+    display: flex;
+  }
+  &__navitem {
+    margin-left: 2rem;
+  }
+  &__navlink {
+    color: $text-color;
+    opacity: 0.65;
+    font-size: 1.2rem;
+    letter-spacing: 0.15rem;
+    transition: all 0.4s;
+    &:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    &__navitem {
+      margin-left: 5rem;
+    }
+    &__navlink {
+      font-size: 1.6rem;
+    }
+  }
 }
