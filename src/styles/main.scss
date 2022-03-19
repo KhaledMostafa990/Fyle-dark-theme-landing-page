@@ -7,10 +7,14 @@
   display: grid;
   @include mainGridTemplate;
   overflow: hidden;
-
+  position: relative;
   width: 100%;
   max-width: 100%;
   row-gap: 12rem;
+  top: -38.6rem;
+  padding-top: 25rem;
+  padding-bottom: 30rem;
+  margin-bottom: -39rem;
 }
 
 @import "features";

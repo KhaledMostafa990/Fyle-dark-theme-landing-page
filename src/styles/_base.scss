@@ -31,37 +31,102 @@ body {
   font-weight: 400;
   width: 100%;
   max-width: 100%;
+  color: $text-color;
   &::-webkit-scrollbar {
     width: 0.65rem;
   }
   &::-webkit-scrollbar-track {
-    background-color: $main-bg;
+    background-color: transparent;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #444;
     border-radius: 2rem;
   }
 }
-@mixin mainGridTemplate {
-  grid-template-columns:
-    [all-start] 5% [center-start] repeat(10, [col-start] (90% / 10) [col-end])
-    [ center-end ] 5% [all-end];
-}
+
 a,
 button {
+  color: $text-color;
   text-decoration: none;
+  font-family: "Raleway", sans-serif;
 }
+
 ul {
   list-style-type: none;
 }
 
-a,
-button,
 h1,
 h2,
 h3,
 h4,
 h5 {
+  font-weight: 600;
+  line-height: 1.45;
   font-family: "Raleway", sans-serif;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  position: relative;
+  display: inline-block;
+  background: none;
+  color: $text-color;
+  padding: 1.25rem 7rem;
+
+  font-size: clamp(1.4rem, 1.1vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  border-radius: 5rem;
+  transition: all 0.2s ease-in;
+
+  &:active {
+    transform: translateY(-0.15rem);
+  }
+
+  &__blue {
+    background-image: linear-gradient(
+      to left,
+      rgba($color: $blue-cta, $alpha: 1),
+      rgba($color: $cyan-cta, $alpha: 0.75)
+    );
+  }
+  &__cyan {
+    background-image: linear-gradient(
+      to left,
+      rgba($color: $cyan-cta, $alpha: 0.75),
+      rgba($color: $blue-cta, $alpha: 1)
+    );
+  }
+  &__cyan,
+  &__blue {
+    &:hover {
+      background-image: linear-gradient(
+          to left,
+          rgba($color: $cyan-cta, $alpha: 1),
+          rgba($color: $cyan-cta, $alpha: 0.5)
+        ),
+        linear-gradient(
+          to left,
+          rgba($color: $blue-cta, $alpha: 1),
+          rgba($color: $blue-cta, $alpha: 1)
+        ),
+        linear-gradient(
+          to left,
+          rgba($color: $cyan-cta, $alpha: 0.5),
+          rgba($color: $cyan-cta, $alpha: 1)
+        );
+    }
+  }
+}
+p {
   font-weight: 400;
+  line-height: 1.65;
+  opacity: 0.75;
+}
+
+@mixin mainGridTemplate {
+  grid-template-columns:
+    [all-start] 5% [center-start] repeat(10, [col-start] (90% / 10) [col-end])
+    [ center-end ] 5% [all-end];
 }
