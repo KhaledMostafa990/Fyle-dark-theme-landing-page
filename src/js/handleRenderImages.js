@@ -12,7 +12,8 @@ import profile2 from "../images/profile-2.jpg";
 import profile3 from "../images/profile-3.jpg";
 
 function handleRenderImages() {
-  document.getElementById("logo").src = logo;
+  document.querySelectorAll(".logo")[0].src = logo;
+  document.querySelectorAll(".logo")[1].src = logo;
   document.querySelector(".hero__img").src = hero;
   document.querySelector(".hero__bg-curvy").src = mainBackground;
   document.querySelector(".features__feature__icon--anywhere").src = features1;

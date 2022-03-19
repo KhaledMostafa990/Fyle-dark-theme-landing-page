@@ -2,4 +2,164 @@
   background-color: $footer-bg;
 
   padding: 0 5%;
+
+  height: 100%;
+  width: 100%;
+  padding: 0 5%;
+
+  &__subscribe {
+    position: relative;
+    text-align: center;
+    // height: 30rem;
+    top: -14.25rem;
+    padding: 4rem 2.5rem;
+
+    background-color: $secondary-bg;
+    border-radius: 0.48rem;
+    box-shadow: 0.2rem 0.4rem 0.66rem $testimonials-bg;
+    &__heading {
+      color: $text-color;
+      font-size: clamp(2rem, 2vw, 3vw);
+      font-weight: 600;
+      line-height: 1.45;
+
+      margin-bottom: 2rem;
+    }
+    &__paragraph {
+      color: $text-color;
+      font-size: clamp(1.4rem, 1.3vw, 2vw);
+      font-weight: 400;
+      line-height: 1.65;
+      opacity: 0.75;
+    }
+    &__form {
+      margin-top: 3rem;
+    }
+    #email {
+      border: 0;
+      outline: 0;
+      display: block;
+      width: 22.75rem;
+
+      border-radius: 5rem;
+      padding: 1.2rem 1.5rem;
+
+      margin: 0 auto;
+      margin-bottom: 2rem;
+
+      &::placeholder {
+        font-size: 1.15rem;
+        opacity: 0.75;
+      }
+    }
+  }
+  &__logo-wrapper {
+    margin-top: -6rem;
+    margin-bottom: 4rem;
+  }
+  &__contact-info {
+    display: grid;
+    row-gap: 4rem;
+    &__intro {
+      display: flex;
+      width: 85;
+      svg {
+        flex: 1;
+      }
+      p {
+        flex: 8;
+        font-size: clamp(1.4rem, 1.3vw, 2vw);
+      }
+    }
+    &__list--1 {
+      a {
+        margin-left: 2rem;
+      }
+    }
+    &__item {
+      margin-bottom: 2rem;
+    }
+    &__link {
+      font-size: 1.8rem;
+
+      opacity: 0.85;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &__icons {
+      justify-self: center;
+      margin-bottom: 4rem;
+      > * {
+        outline: 0.15rem solid $text-color;
+        padding: 0.8rem;
+        border-radius: 100%;
+        margin-right: 2rem;
+        font-size: 1.8rem;
+        &:hover {
+          color: $cyan-cta;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    &__subscribe {
+      width: 95%;
+      margin: 0 auto;
+
+      &__heading {
+        font-size: clamp(2rem, 2.5vw, 3vw);
+      }
+      &__paragraph {
+        max-width: 75%;
+        margin: 0 auto;
+      }
+      &__form {
+        margin-top: 3rem;
+        .form-control {
+          display: flex;
+          justify-content: space-between;
+          padding: 0 3rem;
+        }
+      }
+
+      #email {
+        display: inline;
+        margin: 0;
+        flex: 7;
+      }
+      &__btn {
+        flex: 2.5;
+        margin-left: 2.25rem;
+      }
+    }
+    &__contact-info {
+      grid-template-columns: [col-start] repeat(2, 1fr) [col-end];
+      justify-items: center;
+      &__icons {
+        grid-column: col-start / col-end;
+      }
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    &__subscribe {
+      width: 75%;
+      &__paragraph {
+        max-width: 95%;
+      }
+    }
+    &__contact-info {
+      grid-template-columns: [col-start] repeat(5, 1fr) [col-end];
+      justify-items: center;
+      &__icons {
+        grid-column: unset;
+      }
+    }
+    &__logo-wrapper {
+      .logo {
+        width: 12rem;
+      }
+    }
+  }
 }

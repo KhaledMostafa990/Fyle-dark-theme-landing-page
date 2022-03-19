@@ -7,6 +7,12 @@
 
     <title><%= htmlWebpackPlugin.options.title %></title>
 
+    <!--  Ionicons for icons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   </head>
   <body>
@@ -253,7 +259,7 @@
       </div>
 
       <figure class="footer__logo-wrapper">
-        <img src="" alt="" id="logo" class="logo" />
+        <img src="" alt="" class="logo" />
       </figure>
 
       <div class="footer__contact-info">
@@ -325,7 +331,11 @@
           </li>
         </ul>
 
-        <div class="footer__contact-info__icons"></div>
+        <div class="footer__contact-info__icons">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-icon name="logo-twitter"></ion-icon>
+          <ion-icon name="logo-instagram"></ion-icon>
+        </div>
       </div>
       <!-- <p class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 

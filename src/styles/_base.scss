@@ -49,6 +49,8 @@ button {
   color: $text-color;
   text-decoration: none;
   font-family: "Raleway", sans-serif;
+  letter-spacing: 0.15rem;
+  transition: all 0.4s;
 }
 
 ul {
@@ -63,6 +65,7 @@ h5 {
   font-weight: 600;
   line-height: 1.45;
   font-family: "Raleway", sans-serif;
+  letter-spacing: 0.18rem;
 }
 
 .btn {
@@ -76,9 +79,7 @@ h5 {
 
   font-size: clamp(1.4rem, 1.1vw, 1.8rem);
   font-weight: 600;
-  letter-spacing: 0.1rem;
   border-radius: 5rem;
-  transition: all 0.2s ease-in;
 
   &:active {
     transform: translateY(-0.15rem);
