@@ -1,102 +1,61 @@
-const headings = document.querySelectorAll("h1, h2 ,h3 ");
-const paragraphs = document.querySelectorAll("p");
-const footerAndHeaderInfo = document.querySelectorAll("a, span, .logo");
-const buttonsAndICons = document.querySelectorAll(
-  ".btn , .features__feature__icon , input "
-);
-const images = document.querySelectorAll(".process__img , .hero__img ");
+const t0 = performance.now();
+const parentToAnimateChildren = document.querySelectorAll("[data-aws-seq]");
+const elementsToAnimate = document.querySelectorAll("[data-aws]");
 
-function addAnimation(
-  currentCollection,
-  interSecting,
-  animationClass,
-  duration
-) {
-  return (isIntersecting) => {
-    interSecting.style.animationDuration = duration;
-    for (let element of currentCollection) {
-      if (interSecting === element) {
-        if (isIntersecting) {
-          interSecting.classList.add(animationClass);
-        } else {
-          interSecting.classList.remove(animationClass);
-          interSecting.style.opacity = "0";
-        }
-      }
+const observerOptions = {
+  root: null,
+  threshold: 0.45,
+  rootMargin: "0px",
+};
+function handleAnimateOnScroll() {
+  elementsToAnimate.forEach((el) => animationsOnScroll.observe(el));
+  parentToAnimateChildren.forEach((parent) =>
+    [...parent.children].forEach((child) => animationsOnScroll.observe(child))
+  );
+}
+const animationsOnScroll = new IntersectionObserver(Callback, observerOptions);
+function Callback(entries, animationsOnScroll) {
+  entries.forEach(({ target, isIntersecting }) => {
+    // While Scrolling..
+    if (!isIntersecting) {
+      handleInterSectingTarget(target, false);
+      return;
+    } else {
+      handleInterSectingTarget(target, true);
     }
-  };
+  });
 }
-
-const animationsOnScroll = new IntersectionObserver(
-  (entries, animateSectionsOnScroll) => {
-    entries.forEach((entry) => {
-      let target = entry.target;
-      const animateText = addAnimation(
-        headings,
-        target,
-        "fade-up-right",
-        ".811s"
+function handleInterSectingTarget(target, inView) {
+  addAnimation(parentToAnimateChildren, true)(target, inView);
+  addAnimation(elementsToAnimate, false)(target, inView);
+}
+function addAnimation(elements, sequencely) {
+  if (!sequencely) {
+    return (target, isIntersecting) => {
+      elements.forEach((element) => {
+        if (target === element) {
+          isIntersecting
+            ? target.classList.add("animate")
+            : target.classList.remove("animate");
+        }
+      });
+    };
+  } else {
+    return (target, isIntersecting) => {
+      elements.forEach((parent) =>
+        [...parent.children].forEach((child, indx) => {
+          child.dataset.aws
+            ? (child.style.transitionDuration = `1s`)
+            : (child.style.transitionDuration = `${indx + 0.8 * 0.8}s`);
+          if (target === child)
+            isIntersecting
+              ? target.classList.add("animate")
+              : target.classList.remove("animate");
+        })
       );
-      const animateParagraph = addAnimation(
-        paragraphs,
-        target,
-        "fade-down",
-        ".911s"
-      );
-      const animateImg = addAnimation(images, target, "flip-up", ".88s");
-      const animateBtn = addAnimation(
-        buttonsAndICons,
-        target,
-        "zoom-in-down",
-        ".88s"
-      );
-      const animateFooterAndHeader = addAnimation(
-        footerAndHeaderInfo,
-        target,
-        "fade-up",
-        ".88s"
-      );
-
-      if (!entry.isIntersecting) {
-        animateText(false);
-        animateParagraph(false);
-        animateImg(false);
-        animateBtn(false);
-        animateFooterAndHeader(false);
-        return;
-      } else {
-        animateText(true);
-        animateParagraph(true);
-        animateImg(true);
-        animateBtn(true);
-        animateFooterAndHeader(true);
-      }
-    });
-  },
-  {
-    // Options
-    root: null,
-    threshold: 0.15,
-    rootMargin: "-10px",
+    };
   }
-);
-
-function handleAnimateOnScroll(params) {
-  headings.forEach((h) => {
-    animationsOnScroll.observe(h);
-  });
-
-  images.forEach((img) => {
-    animationsOnScroll.observe(img);
-  });
-  paragraphs.forEach((p) => {
-    animationsOnScroll.observe(p);
-  });
-  buttonsAndICons.forEach((b) => {
-    animationsOnScroll.observe(b);
-  });
-  footerAndHeaderInfo.forEach((el) => {
-    animationsOnScroll.observe(el);
-  });
 }
+const t1 = performance.now();
+console.log((t1 - t0).toFixed(2));
 export default handleAnimateOnScroll;

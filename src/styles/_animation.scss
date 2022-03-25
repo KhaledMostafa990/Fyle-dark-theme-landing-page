@@ -1,75 +1,93 @@
-.fade-up-right {
-  animation: fade-up-right 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.33s
-    forwards;
+//** Fade **//
+[data-aws^="fade"],
+[data-aws-seq^="fade"] > *:not([data-aws]) {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.45s;
+  &.animate {
+    opacity: 1;
+    transform: none;
+  }
 }
-
-.fade-down {
-  animation: fade-down 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.33s
-    forwards;
+[data-aws="fade-down"],
+[data-aws-seq="fade-down"] > *:not([data-aws]) {
+  transform: translate3d(0, -15%, 0);
 }
-
-.fade-up {
-  animation: fade-up 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.33s
-    forwards;
+[data-aws="fade-up"],
+[data-aws-seq="fade-up"] > *:not([data-aws]) {
+  transform: translate3d(0, 15%, 0);
 }
-
-.flip-up {
+[data-aws="fade-up-right"],
+[data-aws-seq="fade-up-right"] > *:not([data-aws]) {
+  transform: translate3d(-9%, 15%, 0);
+}
+// --------- //
+//** Flip **//
+[data-aws^="flip"] {
+  opacity: 0.66;
   backface-visibility: hidden;
-  animation: flip-up 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.33s
-    forwards;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.45s;
 }
-.zoom-in-down {
-  backface-visibility: hidden;
-  animation: zoom-in-down 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.33s
-    forwards;
-}
-@keyframes fade-up-right {
-  0% {
-    opacity: 0;
-    transform: translate3d(-9%, 15%, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes fade-up {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 15%, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes fade-down {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -15%, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes flip-up {
-  0% {
-    opacity: 0.66;
-    transform: perspective(2500px) rotateX(-100deg);
-  }
-  100% {
+[data-aws^="flip-left"] {
+  transform: perspective(2500px) rotateY(-100deg);
+  &.animate {
     opacity: 1;
     transform: perspective(2500px) rotateY(0);
   }
 }
-@keyframes zoom-in-down {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 15%, 0) scale(0.66);
-  }
-  100% {
+// --------- //
+//** Zoom **//
+[data-aws^="zoom"] {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.45s;
+}
+[data-aws^="zoom-in-down"] {
+  transform: translate3d(0, -15%, 0) scale(0.66);
+  &.animate {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+// --------- //
+//** Loader on page loading **//
+.loader {
+  position: fixed;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to left bottom,
+    rgba($color: $main-bg, $alpha: 1),
+    rgba($color: $main-bg, $alpha: 1)
+  );
+  &__dots {
+    display: flex;
+    height: 2.5rem;
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(3, 10px);
+    .dot {
+      animation: scaling-dots 1s infinite ease backwards;
+      background: $text-color;
+      border-radius: 100%;
+      height: 2rem;
+      width: 2rem;
+    }
+    @for $i from 1 through 5 {
+      .dot:nth-child(#{$i}) {
+        animation-delay: $i * 0.1s;
+      }
+    }
+  }
+}
+@keyframes scaling-dots {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  40%,
+  60% {
+    transform: scale(1);
   }
 }

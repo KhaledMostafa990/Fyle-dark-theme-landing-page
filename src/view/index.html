@@ -12,17 +12,23 @@
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
     ></script>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   </head>
   <body>
+    <!-- ========  LOADER ======== -->
+    <div id="loader" class="loader">
+      <div id="loader__dots" class="loader__dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
     <!-- ======== ======== HEADER  ======== ======== -->
     <header id="header" class="header">
-      <figure class="header__logo-wrapper">
+      <figure class="header__logo-wrapper" data-aws="fade-up">
         <img src="" alt="" id="logo" class="logo" />
       </figure>
       <nav id="nav" class="nav">
-        <ul class="nav__navlist">
+        <ul class="nav__navlist" data-aws-seq="fade-up">
           <li class="nav__navitem">
             <a href="#features" class="nav__navlink">Features</a>
           </li>
@@ -35,14 +41,12 @@
         </ul>
       </nav>
     </header>
-    <!-- ======== ======== HEADER END  ======== ======== -->
     <!-- ======== ======== HERO  ======== ======== -->
     <section class="hero">
-      <figure class="hero__img-wrapper">
+      <figure class="hero__img-wrapper" data-aws="flip-left">
         <img src="" alt="illustration intro" class="hero__img" />
       </figure>
-
-      <div class="hero__content">
+      <div class="hero__content" data-aws-seq="fade-up">
         <h1 class="hero__content__heading">
           <span>All your files in one secure</span> location, accessible
           <span> anywhere.</span>
@@ -58,16 +62,16 @@
         <img src="" alt="illustration intro" class="hero__bg-curvy" />
       </figure>
     </section>
-    <!-- ======== ======== HERO END  ======== ======== -->
     <!-- ======== ======== MAIN  ======== ======== -->
     <main class="main">
       <!-- ======== ======== FEAUTRES  ======== ======== -->
       <section id="features" class="features">
-        <div class="features__feature">
+        <div class="features__feature" data-aws-seq="fade-up">
           <img
             class="features__feature__icon features__feature__icon--anywhere"
             src=""
             alt="Access your files, anywhere icon"
+            data-aws="zoom-in-down"
           />
           <h2 class="features__feature__heading">
             Access your files, anywhere
@@ -77,8 +81,9 @@
             account means your files follow you everywhere.
           </p>
         </div>
-        <div class="features__feature">
+        <div class="features__feature" data-aws-seq="fade-up">
           <img
+            data-aws="zoom-in-down"
             class="features__feature__icon features__feature__icon--security"
             src=""
             alt="Security you can trust icon"
@@ -89,8 +94,9 @@
             couple of the security features we allow to help secure your files.
           </p>
         </div>
-        <div class="features__feature">
+        <div class="features__feature" data-aws-seq="fade-up">
           <img
+            data-aws="zoom-in-down"
             class="features__feature__icon features__feature__icon--collaboration"
             src=""
             alt="Real-time collaboration icon"
@@ -101,8 +107,9 @@
             for live collaboration. No email attachments required.
           </p>
         </div>
-        <div class="features__feature">
+        <div class="features__feature" data-aws-seq="fade-up">
           <img
+            data-aws="zoom-in-down"
             class="features__feature__icon features__feature__icon--anytype"
             src=""
             alt="Store any type of file icon"
@@ -115,17 +122,16 @@
           </p>
         </div>
       </section>
-      <!-- ======== ======== FEAUTRES END  ======== ======== -->
       <!-- ======== ======== WORKS  ======== ======== -->
       <section id="process" class="process">
-        <figure class="process__img-wrapper">
+        <figure class="process__img-wrapper" data-aws="flip-left">
           <img
             src=""
             alt="Stay productive wherever you are image"
             class="process__img"
           />
         </figure>
-        <div class="process__content">
+        <div class="process__content" data-aws-seq="fade-up">
           <h2 class="process__content__heading">
             Stay productive, <span> wherever you are</span>
           </h2>
@@ -137,7 +143,7 @@
             Securely share files and folders with friends, family and colleagues
             for live collaboration. No email attachments required.
           </p>
-          <a href="#" class="process__content__link btn"
+          <a href="#" class="process__content__link btn" data-aws="zoom-in-down"
             >See how Fylo works
             <svg
               width="16"
@@ -181,10 +187,9 @@
           </a>
         </div>
       </section>
-      <!-- ======== ======== WORKS END  ======== ======== -->
       <!-- ======== ======== TEAM  ======== ======== -->
-      <section id="team" class="team">
-        <div class="team__card">
+      <section id="team" class="team" data-aws-seq="fade-up">
+        <div class="team__card" data-aws-seq="fade-up">
           <p class="team__card__paragraph">
             Fylo has improved our team productivity by an order of magnitude.
             Since making the switch our team has become a well-oiled
@@ -192,6 +197,7 @@
           </p>
           <div class="team__card__profile">
             <img
+              data-aws="zoom-in-down"
               src=""
               alt=""
               class="team__card__avatar team__card__avatar--1"
@@ -201,7 +207,7 @@
             </h3>
           </div>
         </div>
-        <div class="team__card">
+        <div class="team__card" data-aws-seq="fade-up">
           <p class="team__card__paragraph">
             Fylo has improved our team productivity by an order of magnitude.
             Since making the switch our team has become a well-oiled
@@ -209,6 +215,7 @@
           </p>
           <div class="team__card__profile">
             <img
+              data-aws="zoom-in-down"
               src=""
               alt=""
               class="team__card__avatar team__card__avatar--2"
@@ -218,7 +225,7 @@
             </h3>
           </div>
         </div>
-        <div class="team__card">
+        <div class="team__card" data-aws-seq="fade-up">
           <p class="team__card__paragraph">
             Fylo has improved our team productivity by an order of magnitude.
             Since making the switch our team has become a well-oiled
@@ -226,6 +233,7 @@
           </p>
           <div class="team__card__profile">
             <img
+              data-aws="zoom-in-down"
               src=""
               alt=""
               class="team__card__avatar team__card__avatar--3"
@@ -236,12 +244,10 @@
           </div>
         </div>
       </section>
-      <!-- ======== ======== TEAM  END ======== ======== -->
     </main>
-    <!-- ======== ======== MAIN END  ======== ======== -->
     <!-- ======== ======== FOOTER  ======== ======== -->
     <footer id="footer" class="footer">
-      <div class="footer__subscribe">
+      <div class="footer__subscribe" data-aws-seq="fade-up">
         <h3 class="footer__subscribe__heading">Get early access today</h3>
         <p class="footer__subscribe__paragraph">
           It only takes a minute to sign up and our free starter tier is
@@ -264,11 +270,11 @@
         </form>
       </div>
 
-      <figure class="footer__logo-wrapper">
+      <figure class="footer__logo-wrapper" data-aws="fade-down">
         <img src="" alt="" class="logo" />
       </figure>
 
-      <div class="footer__contact-info">
+      <div class="footer__contact-info" data-aws-seq="fade-down">
         <div class="footer__contact-info__intro">
           <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -344,7 +350,11 @@
         </div>
       </div>
 
-      <div class="attribution" style="text-align: center">
+      <div
+        class="attribution"
+        style="text-align: center; padding: 2rem 0"
+        data-aws="zoom-in-down"
+      >
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
