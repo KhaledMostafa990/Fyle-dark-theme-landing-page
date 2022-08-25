@@ -1,4 +1,4 @@
-# Bookmark landing page
+# Fylo landing page
 
 ![Design Preview](./design/desktop-preview.jpg)
 
